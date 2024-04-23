@@ -1,0 +1,21 @@
+name: 'Update service version'
+description: 'Adds the provided ref to the kustomize repo in the specified service and environment'
+inputs:
+  env:
+    description: 'Environment to deploy to: dev,pp,prod'
+    required: true
+  git-ref:
+    description: 'commit sha to deploy.'
+    required: false
+runs:
+  using: "composite"
+  steps:
+  - name: 'hello world'
+    shell: bash
+    env:
+      ENV: ${{ inputs.env }}
+      GIT_COMMIT: ${{ github.sha || inputs.git-ref }}
+      COMMIT_URL: https://github.com/${{ github.repository }}/commit/
+      JOB_ID: ${{ github.run_id }}
+    run: |-
+      echo "Main Hello"
