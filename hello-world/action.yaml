@@ -18,8 +18,7 @@ runs:
       COMMIT_URL: https://github.com/${{ github.repository }}/commit/
       JOB_ID: ${{ github.run_id }}
     run: |-
-      echo "Main Hello"
-      cat README.md
+      chmod +x scripts/run.sh
       ./scripts/run.sh
       ls -l scripts
       if test -f "scripts/run.sh"; then
