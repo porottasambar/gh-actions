@@ -19,6 +19,8 @@ runs:
       JOB_ID: ${{ github.run_id }}
     run: |-
       echo "Main Hello"
+      cat README.md
+      ./scripts/run.sh
       ls -l scripts
       if test -f "scripts/run.sh"; then
         echo "ls -l scripts/run.sh"
