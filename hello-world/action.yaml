@@ -19,3 +19,8 @@ runs:
       JOB_ID: ${{ github.run_id }}
     run: |-
       echo "Main Hello"
+      if test -f "scripts/run.sh"; then
+        echo "ls -l scripts/run.sh"
+      else
+        echo "File doesnt exists"
+      fi
